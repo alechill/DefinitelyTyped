@@ -1,4 +1,4 @@
-// Type definitions for react-native 0.63
+// Type definitions for react-native 0.64
 // Project: https://github.com/facebook/react-native
 // Definitions by: Eloy Durán <https://github.com/alloy>
 //                 HuHuanming <https://github.com/huhuanming>
@@ -42,6 +42,7 @@
 //                 Marcel Lasaj <https://github.com/TheWirv>
 //                 Alexey Molchan <https://github.com/alexeymolchan>
 //                 Alex Brazier <https://github.com/alexbrazier>
+//                 Alec Hill <https://github.com/alechill>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.0
 
@@ -1259,41 +1260,132 @@ export interface TextInputIOSProps {
  */
 export interface TextInputAndroidProps {
     /**
-     * Determines which content to suggest on auto complete, e.g.`username`.
-     * To disable auto complete, use `off`.
-     *
-     * *Android Only*
-     *
-     * The following values work on Android only:
-     *
-     * - `username`
-     * - `password`
-     * - `email`
-     * - `name`
-     * - `tel`
-     * - `street-address`
-     * - `postal-code`
-     * - `cc-number`
-     * - `cc-csc`
-     * - `cc-exp`
-     * - `cc-exp-month`
-     * - `cc-exp-year`
-     * - `off`
-     */
+     Specifies autocomplete hints for the system, so it can provide autofill. On
+    Android, the system will always attempt to offer autofill by using
+    heuristics to identify the type of content. To disable autocomplete, set
+    `autoCompleteType` to `off`.
+
+    For detail on the purpose of each possible value refer to [AndroidX HintConstants](https://developer.android.com/reference/androidx/autofill/HintConstants)
+
+    Possible values for `autoCompleteType` are:
+
+    - `off`
+    - `emailAddress`
+    - `username`
+    - `password`
+    - `creditCardNumber`
+    - `creditCardSecurityCode`
+    - `creditCardExpirationDate`
+    - `creditCardExpirationMonth`
+    - `creditCardExpirationYear`
+    - `creditCardExpirationDay`
+    - `postalAddress`
+    - `postalCode`
+    - `addressCountry`
+    - `addressRegion`
+    - `addressLocality`
+    - `streetAddress`
+    - `extendedAddress`
+    - `extendedPostalCode`
+    - `personName`
+    - `personGivenName`
+    - `personFamilyName`
+    - `personMiddleName`
+    - `personMiddleInitial`
+    - `personNamePrefix`
+    - `personNameSuffix`
+    - `phoneNumber`
+    - `phoneNumberDevice`
+    - `phoneCountryCode`
+    - `phoneNational`
+    - `newUsername`
+    - `newPassword`
+    - `gender`
+    - `birthDateFull`
+    - `birthDateDay`
+    - `birthDateMonth`
+    - `birthDateYear`
+    - `smsOTPCode`
+    - `smsOTPCode1`
+    - `smsOTPCode2`
+    - `smsOTPCode3`
+    - `smsOTPCode4`
+    - `smsOTPCode5`
+    - `smsOTPCode6`
+    - `smsOTPCode7`
+    - `smsOTPCode8`
+
+    Deprecated values:
+
+    - `email` (use `emailAddress` instead)
+    - `name` (use `personName` instead)
+    - `tel` (use `phoneNumber` instead)
+    - `street-address` (use `postalAddress` instead)
+    - `postal-code` (use `postalCode` instead)
+    - `cc-number` (use `creditCardNumber` instead)
+    - `cc-csc` (use `creditCardSecurityCode` instead)
+    - `cc-exp` (use `creditCardExpirationDate` instead)
+    - `cc-exp-month` (use `creditCardExpirationMonth` instead)
+    - `cc-exp-year` (use `creditCardExpirationYear` instead)
+    */
     autoCompleteType?:
+        | 'off'
+        | 'emailAddress'
+        | 'username'
+        | 'password'
+        | 'postalAddress'
+        | 'postalCode'
+        | 'creditCardNumber'
+        | 'creditCardSecurityCode'
+        | 'creditCardExpirationDate'
+        | 'creditCardExpirationMonth'
+        | 'creditCardExpirationYear'
+        | 'creditCardExpirationDay'
+        | 'addressCountry'
+        | 'addressRegion'
+        | 'addressLocality'
+        | 'streetAddress'
+        | 'extendedAddress'
+        | 'extendedPostalCode'
+        | 'personName'
+        | 'personGivenName'
+        | 'personFamilyName'
+        | 'personMiddleName'
+        | 'personMiddleInitial'
+        | 'personNamePrefix'
+        | 'personNameSuffix'
+        | 'phoneNumber'
+        | 'phoneNumberDevice'
+        | 'phoneCountryCode'
+        | 'phoneNational'
+        | 'newUsername'
+        | 'newPassword'
+        | 'gender'
+        | 'birthDateFull'
+        | 'birthDateDay'
+        | 'birthDateMonth'
+        | 'birthDateYear'
+        | 'smsOTPCode'
+        | 'smsOTPCode1'
+        | 'smsOTPCode2'
+        | 'smsOTPCode3'
+        | 'smsOTPCode4'
+        | 'smsOTPCode5'
+        | 'smsOTPCode6'
+        | 'smsOTPCode7'
+        | 'smsOTPCode8'
+        // deprecated
+        | 'email'
+        | 'name'
+        | 'tel'
+        | 'street-address'
+        | 'postal-code'
+        | 'cc-number'
         | 'cc-csc'
         | 'cc-exp'
         | 'cc-exp-month'
         | 'cc-exp-year'
-        | 'cc-number'
-        | 'email'
-        | 'name'
-        | 'password'
-        | 'postal-code'
-        | 'street-address'
-        | 'tel'
-        | 'username'
-        | 'off';
+        | 'cc-exp-day';
 
     /**
      * Determines whether the individual fields in your app should be included in a

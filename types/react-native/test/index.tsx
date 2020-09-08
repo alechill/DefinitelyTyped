@@ -875,6 +875,8 @@ class TextInputTest extends React.Component<{}, { username: string }> {
                 <TextInput multiline onContentSizeChange={this.handleOnContentSizeChange} />
 
                 <TextInput contextMenuHidden={true} textAlignVertical="top" />
+
+                <TextInput autoCompleteType="personGivenName" />
             </View>
         );
     }
